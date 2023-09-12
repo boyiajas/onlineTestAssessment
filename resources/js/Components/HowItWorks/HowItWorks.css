@@ -1,0 +1,54 @@
+.howitworks{
+    background: linear-gradient(90deg,#fc4a1a,#f7b733);
+    padding-top: 50px;
+}
+
+.howitworks .title{
+    font-size: 6rem;
+    color: #fff;
+    font-family: var(--font-family-1);
+    text-align: center;
+}
+
+.image-box{
+    background-color: orangered;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.howitworks{
+    margin-top: 70px;
+}
+
+.data-row-1{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: block;
+    color: #fff;
+}
+
+.data-row-box{
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+.data-body h1{
+    font-family: var(--font-family-1);
+}
+
+.data-body p{
+    color: rgb(0, 33, 65);
+}
+
+.data-row-box-col{
+    /* flex: 50%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 30px; */
+}
+
+.data-body.col-md-7{
+    padding-left: 15px;
+}

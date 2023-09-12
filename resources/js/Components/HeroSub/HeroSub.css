@@ -1,0 +1,19 @@
+.herosub{
+    display: flex;
+    padding-top: 50px;
+}
+
+.herosub-title{
+    flex: 40%;
+}
+
+.herosub-title h1{
+    font-family: var(--font-family-1);
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.herosub-body{
+    flex: 60%;
+}
+
