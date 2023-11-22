@@ -22,8 +22,15 @@ jobs:
         cd ../..
     - name: Connect to FortiClient VPN
       run: |
-        ./forticlientsslvpn/64bit/forticlientsslvpn_cli --server serveraddress:port --vpnuser username
-        # Add any necessary delay or verification for successful VPN connection
+        ./forticlientsslvpn/64bit/forticlientsslvpn_cli --server ${{variables.serveraddress}}:443 --vpnuser ${{secrets.username}} --vpnpass ${{secrets.password}} &
+        sleep 20 # Adjust delay as needed
+        VPN_STATUS=$(ps aux | grep forticlientsslvpn_cli | grep -v grep | wc -l)
+        if [ "$VPN_STATUS" -gt 0 ]; then
+          echo "VPN Connected successfully."
+        else
+          echo "VPN connection failed."
+          exit 1
+        fi
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
