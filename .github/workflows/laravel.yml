@@ -20,9 +20,11 @@ jobs:
         cd ./forticlientsslvpn/64bit/helper
         sudo ./setup.linux.sh
         cd ../..
+    - name: Setup FortiClient SSLVPN
+      run: /home/runner/work/onlineTestAssessment/onlineTestAssessment/./forticlientsslvpn/64bit/helper/setup.sh
     - name: Connect to FortiClient VPN
       run: |
-        ./forticlientsslvpn/64bit/forticlientsslvpn_cli --server ${serveraddress}:443 --vpnuser ${{secrets.username}} --vpnpass ${{secrets.password}} &
+        /home/runner/work/onlineTestAssessment/onlineTestAssessment/./forticlientsslvpn/64bit/forticlientsslvpn_cli --server ${serveraddress}:443 --vpnuser ${{secrets.username}} --vpnpass ${{secrets.password}} &
         sleep 20 # Adjust delay as needed
         VPN_STATUS=$(ps aux | grep forticlientsslvpn_cli | grep -v grep | wc -l)
         if [ "$VPN_STATUS" -gt 0 ]; then
