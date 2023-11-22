@@ -20,7 +20,7 @@ jobs:
         cd ./forticlientsslvpn/64bit/helper
         pwd
         ls
-        sudo ./setup.linux.sh
+        sudo ./setup.linux.sh -y
         cd ../..
     - name: Find FortiClient SSLVPN Setup Script
       run: |
