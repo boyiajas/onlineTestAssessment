@@ -20,6 +20,15 @@ jobs:
         cd ./forticlientsslvpn/64bit/helper
         sudo ./setup.linux.sh
         cd ../..
+    - name: Find FortiClient SSLVPN Setup Script
+      run: |
+        echo "Searching for FortiClient SSLVPN setup script..."
+        forticlient_setup=$(find / -name "setup.sh" -type f 2>/dev/null)
+        if [ -n "$forticlient_setup" ]; then
+          echo "FortiClient SSLVPN setup script found at: $forticlient_setup"
+        else
+          echo "FortiClient SSLVPN setup script not found."
+        fi
     - name: Setup FortiClient SSLVPN
       run: /home/runner/work/onlineTestAssessment/onlineTestAssessment/./forticlientsslvpn/64bit/helper/setup.sh
     - name: Connect to FortiClient VPN
