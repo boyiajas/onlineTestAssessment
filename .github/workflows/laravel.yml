@@ -22,7 +22,7 @@ jobs:
         cd ../..
     - name: Connect to FortiClient VPN
       run: |
-        ./forticlientsslvpn/64bit/forticlientsslvpn_cli --server ${{variables.serveraddress}}:443 --vpnuser ${{secrets.username}} --vpnpass ${{secrets.password}} &
+        ./forticlientsslvpn/64bit/forticlientsslvpn_cli --server ${serveraddress}:443 --vpnuser ${{secrets.username}} --vpnpass ${{secrets.password}} &
         sleep 20 # Adjust delay as needed
         VPN_STATUS=$(ps aux | grep forticlientsslvpn_cli | grep -v grep | wc -l)
         if [ "$VPN_STATUS" -gt 0 ]; then
